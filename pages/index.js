@@ -1,13 +1,21 @@
-import { Html } from "next/document";
 import React from "react";
 
 const App = () => {
   return (
-    <body>
-      <h1>Feitiço</h1>
-      <h2>Será que a piada foi longe demais?</h2>
-      <img src="https://media.tenor.com/Vk3eHZgEG_YAAAAM/wizard-magic.gif" />
-    </body>
+    <>
+      <h1>Olá pessoas!</h1>
+      <p>
+        Este espaço está em construção, ainda não sei o que farei com ele!!!
+      </p>
+      <img
+        className="WorkingDog"
+        src="https://images.uncyc.org/pt/thumb/f/fb/Cachelicoptero.gif/240px-Cachelicoptero.gif"
+        style={{
+          width: 240,
+          height: 339,
+        }}
+      />
+    </>
   );
 };
 
