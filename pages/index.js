@@ -13,7 +13,6 @@ const App = () => {
         style={{
           width: 240,
           height: 339,
-          
         }}
       />
     </>
