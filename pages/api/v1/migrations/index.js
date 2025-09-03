@@ -4,20 +4,22 @@ import database from 'infra/database.js'
 
 
 export default async function migrations(request, response) {
-  const dbClient = await database.getNewClient();
-  const defaultConfiguration = {
-    dbClient: dbClient,
-    dryRun: true,
-    dir: join("infra", "migrations"),
-    direction: "up",
-    verbose: true,
-    migrationsTable: 'pgmigrations',
-  }
-
+  
+  let dbClient;
+  
   try {
+    dbClient = await database.getNewClient();
+    const defaultConfiguration = {
+      dbClient: dbClient,
+      dryRun: true,
+      dir: join("infra", "migrations"),
+      direction: "up",
+      verbose: true,
+      migrationsTable: 'pgmigrations',
+    }
     const allowedMethods = ['GET', 'POST']
     if (!allowedMethods.includes(request.method)) {
-      return response.status(405).end({Message:"Method not allowed"});
+      return response.status(405).json({error:`Method ${request.method} Not Allowed`});
     }
   
     if (request.method === 'GET'){
